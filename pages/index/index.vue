@@ -4,7 +4,7 @@
       <u-image src="/static/img/loginBack.png" mode="widthFix"></u-image>
     </view>
     <view class="login-form">
-      <view class="welcome-words">欢迎登陆</view>
+      <view class="welcome-words bold">欢迎登陆</view>
       <view class="form">
         <u-form v-model="form">
           <u-form-item label="账号:"><u-input v-model="form.username" placeholder="请输入账号" /></u-form-item>
@@ -58,11 +58,7 @@
 </script>
 
 <style>
-	* {
-    margin: 0;
-    padding: 0;
-    font-family: MicrosoftYaHei-Bold;
-  }
+
 </style>
 <style scoped lang="scss">
 .content{
