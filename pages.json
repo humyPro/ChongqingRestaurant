@@ -8,11 +8,16 @@
       "style": {
         "navigationBarTitleText": ""
       }
+    },
+    {
+      "path": "pages/official/home",
+      "style": {
+        "navigationBarTitleText": "渝中区"
+      }
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#1184ff",
     "backgroundColor": "#F8F8F8"
   }

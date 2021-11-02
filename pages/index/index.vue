@@ -8,7 +8,7 @@
       <view class="form">
         <u-form v-model="form">
           <u-form-item label="账号:"><u-input v-model="form.username" placeholder="请输入账号" /></u-form-item>
-          <u-form-item label="密码:"><u-input v-model="form.password" placeholder="请输入密码"/></u-form-item>
+          <u-form-item label="密码:"><u-input type="password" v-model="form.password" placeholder="请输入密码"/></u-form-item>
           <view class="checkbox-container">
             <u-checkbox-group>
               <u-checkbox
@@ -19,7 +19,9 @@
             </u-checkbox-group>
           </view>
         </u-form>
-        <u-button :custom-style="{backgroundColor: '#1184ff',marginTop:'66rpx',height:'86rpx'}" type="primary">登陆</u-button>
+        <!--                  :disabled="!form.password || !form.username" -->
+        <u-button @click="handleLogin"
+                  :custom-style="{backgroundColor: '#1184ff',marginTop:'66rpx',height:'86rpx'}" type="primary">登陆</u-button>
       </view>
       <view class="tips"><span>若忘记密码？请联系管理员</span><span class="text-link">13560842923</span><span>重置</span></view>
 
@@ -43,6 +45,13 @@
 
 		},
 		methods: {
+      handleLogin(){
+        //TODO login
+        wx.redirectTo({
+          url: '/pages/official/home'
+        })
+
+      }
 
 		}
 	}
