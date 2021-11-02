@@ -100,7 +100,7 @@
       </view>
     </view>
 
-    <view class="warn-trend section">
+    <view class="section warn-trend">
       <WarnTrend/>
     </view>
   </view>
@@ -270,6 +270,10 @@ export default {
       }
     }
 
+  }
+
+  .warn-trend {
+    padding-top: 10rpx!important;
   }
 }
 

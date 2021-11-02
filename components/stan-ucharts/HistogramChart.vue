@@ -73,7 +73,7 @@ export default {
 			default: `histogram_canvas_${Math.ceil(Math.random(5) * 10000)}`
 		}
 	},
-	data() {
+	data() {  
 		return {};
 	},
 	computed: {
@@ -115,7 +115,7 @@ export default {
 				type: 'grid',
 				rotateLabel: true, //X轴刻度（数值）标签是否旋转（仅在文案超过单屏宽度时有效）
 				itemCount: 5, //X轴可见区域数据数量（即X轴数据密度），配合拖拽滚动使用（即仅在启用enableScroll时有效）
-				// labelCount:Number,//X轴可见区域标签数量（即X轴数刻度标签单屏幕限制显示的数量）
+				// labelCount:15,//X轴可见区域标签数量（即X轴数刻度标签单屏幕限制显示的数量）
 				scrollShow: true, //是否显示滚动条，配合拖拽滚动使用（即仅在启用enableScroll时有效）
 				scrollAlign: 'left', //滚动条初始位置，left为数据整体左对齐，right为右对齐
 				scrollBackgroundColor: '#EFEBEF', //	X轴滚动条背景颜色，配合拖拽滚动使用（即仅在启用enableScroll时有效）
@@ -171,7 +171,9 @@ export default {
 				}
 			}
 		};
-		optionAs[this.canvasId] = Object.assign(defaultOption, this.basicAs, this.xAxisAS, this.yAxisAS, this.legendAs, this.extraAs);
+    const xAxisAs = this.xAxisAs
+    const yAxisAS = this.yAxisAs
+		optionAs[this.canvasId] = Object.assign(defaultOption, this.basicAs, xAxisAs, yAxisAS, this.legendAs, this.extraAs);
 		histogramuCharts[this.canvasId] = new uCharts(optionAs[this.canvasId]);
 	},
 	methods: {

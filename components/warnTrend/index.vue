@@ -1,22 +1,25 @@
 <template>
-  <view>
-
-    <!-- 百分比柱状图Compent2 -->
-    <view>
-      <histogram-chart
-          :dataAs="histogramData2"
-          canvasId="ht1"
-          labelKey="label"
-          valueKey="value"
-          :yAxisAs="{
-					formatter: {
-						type: 'percent' //type:number percent String,额外参数:fixed:NUmber,name:String
-					}
-				}"
-      />
-      <view style="text-align: center;line-height: 40px;">柱状图histogram percent</view>
+  <view class="canvas-container" :id="id">
+    <view class="head">
+      <view class="title bold">报警趋势</view>
+      <view class="button-container">
+        <u-tabs :list="buttonText" :is-scroll="false" :current="current" :bar-width="76" :font-size="20"
+                :item-width="76" @change="handleScopeChange"></u-tabs>
+      </view>
     </view>
-
+    <histogram-chart v-if="ready"
+                     :dataAs="histogramData"
+                     :basicAs="basicAs"
+                     :legendAs="legendAs"
+                     :xAxisAs="xAxisAs"
+                     labelKey="label"
+                     valueKey="value"
+                     :yAxisAs="{
+                        formatter: {
+                          type: 'number' //type:number percent String,额外参数:fixed:NUmber,name:String
+                        }
+                      }"
+    />
   </view>
 </template>
 
@@ -30,25 +33,96 @@ export default {
   },
   data() {
     return {
-      histogramData2: {
-        label: ['2052', '2013', '2014', '2015', '2016', '2017', '2018'],
+      id: this.$u.guid(20),
+      buttonText: [{name: "本周"}, {name: "本月"}],
+      current: 1,
+      ready: false,
+      basicAs: {
+        colors: ["#f8c322"],
+        padding: [0, 0, 20, 0],
+        enableScroll: false,
+        dataLabel: false,
+        width: undefined,
+      },
+      xAxisAs: {
+        xAxis: {
+          labelCount: 15,
+          itemCount: 30,
+          disableGrid: true
+        }
+      },
+      legendAs: {
+        legend: {
+          show: false
+        }
+      },
+      histogramData: {
+        label: (() => {
+          const arr = []
+          for (let i = 0; i < 30; i++) {
+            arr.push(i + 1)
+          }
+          return arr
+        })(),
         value: [
           {
-            name: '报警趋势',
-            data: [0.3, 0.2, 0.5, 0.4, 0.3, 0.1, 0.2]
+            name: '',
+            data: (() => {
+              const arr = []
+              for (let i = 0; i < 30; i++) {
+                arr.push(Math.floor(Math.random() * 50))
+              }
+              console.log("随机生成的arr", arr)
+              return arr
+            })()
           }
         ]
       }
     };
   },
-  methods: {},
+  methods: {
+    handleScopeChange(index) {
+      this.current = index
+    }
+  },
   created() {
+  },
+  onReady() {
+    const query = wx.createSelectorQuery().in(this);  //创建节点选择器
+    const id = this.id
+    const that = this
+    query.select(`#${id}`).boundingClientRect(function (res) {
+      that.ready = true
+      that.basicAs.width = res && res.width || undefined
+      console.log('柱状图宽度', res)
+    }).exec();
   }
 };
 </script>
 
-<style scoped>
-.arcbar {
-  display: flex;
+<style scoped lang="scss">
+.canvas-container {
+  width: 100%;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    margin-bottom: 34rpx;
+
+    .title {
+      font-size: 28rpx;
+      letter-spacing: 0;
+      color: #262626;
+      display: flex;
+      align-items: center;
+    }
+
+    .button-container {
+      display: flex;
+      align-content: center;
+    }
+  }
+
 }
 </style>
