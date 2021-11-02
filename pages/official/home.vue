@@ -239,7 +239,7 @@ export default {
 
         .status {
           color: #0b0b0b;
-          margin-left: 20rpx;
+          margin-left: 10rpx;
 
           &.off {
             color: #fd0909;
@@ -266,6 +266,11 @@ export default {
         .detail-item {
           display: flex;
           align-content: center;
+          flex-basis: 50%;
+
+          &:not(:last-child){
+            margin-right: 39rpx;
+          }
         }
       }
     }
