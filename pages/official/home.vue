@@ -4,14 +4,20 @@
       <view class="item">
         <image class="big-icon" mode="scaleToFill" src="/static/icon/building.png"/>
         <view class="text-content">
-          <view><text class="number bold">24</text><text class="unit">家</text></view>
+          <view>
+            <text class="number bold">24</text>
+            <text class="unit">家</text>
+          </view>
           <view class="sub-title">餐饮企业总数</view>
         </view>
       </view>
       <view class="item">
         <image class="big-icon" mode="scaleToFill" src="/static/icon/electricDevice.png"/>
         <view class="text-content">
-          <view><text class="number">24</text><text class="unit">家</text></view>
+          <view>
+            <text class="number">24</text>
+            <text class="unit">家</text>
+          </view>
           <view class="sub-title">安装用电监控</view>
         </view>
       </view>
@@ -19,7 +25,10 @@
 
     <view class="abnormal section">
       <view class="head">
-        <view class="title bold"><text>当前异常企业:</text><text class="err-number">7</text></view>
+        <view class="title bold">
+          <text>当前异常企业:</text>
+          <text class="err-number">7</text>
+        </view>
         <view class="action text-button">查看全部</view>
       </view>
       <view class="item">
@@ -32,10 +41,12 @@
               <image class="detail-icon" src="/static/icon/leaf-tiny.png"></image>
             </view>
             <view class="device-status">
-              <text>净化机</text><text class="status">开</text>
+              <text>净化机</text>
+              <text class="status">开</text>
             </view>
             <view class="device-status">
-              <text>电流</text><text class="status">12.5Ah</text>
+              <text>电流</text>
+              <text class="status">12.5Ah</text>
             </view>
           </view>
           <view class="detail-item">
@@ -43,10 +54,12 @@
               <image class="detail-icon" src="/static/icon/fan-tiny.png"></image>
             </view>
             <view class="device-status">
-              <text>风机</text><text class="status">开</text>
+              <text>风机</text>
+              <text class="status">开</text>
             </view>
             <view class="device-status">
-              <text>电流</text><text class="status">12.5Ah</text>
+              <text>电流</text>
+              <text class="status">12.5Ah</text>
             </view>
           </view>
         </view>
@@ -62,10 +75,12 @@
               <image class="detail-icon" src="/static/icon/leaf-tiny.png"></image>
             </view>
             <view class="device-status">
-              <text>净化机</text><text class="status">开</text>
+              <text>净化机</text>
+              <text class="status">开</text>
             </view>
             <view class="device-status">
-              <text>电流</text><text class="status">12.5Ah</text>
+              <text>电流</text>
+              <text class="status">12.5Ah</text>
             </view>
           </view>
           <view class="detail-item">
@@ -73,10 +88,12 @@
               <image class="detail-icon" src="/static/icon/fan-tiny-off.png"></image>
             </view>
             <view class="device-status">
-              <text>风机</text><text class="status off">关</text>
+              <text>风机</text>
+              <text class="status off">关</text>
             </view>
             <view class="device-status">
-              <text>电流</text><text class="status">0</text>
+              <text>电流</text>
+              <text class="status">0</text>
             </view>
           </view>
         </view>
@@ -84,11 +101,17 @@
     </view>
 
     <view class="warn-trend section">
-
+      <WarnTrend/>
     </view>
   </view>
 </template>
 <script>
+import WarnTrend from  "../../components/warnTrend"
+export default {
+  components: {
+    WarnTrend,
+  },
+}
 
 </script>
 <style scoped lang="scss">
@@ -106,7 +129,8 @@
     &:not(:last-child) {
       margin-bottom: 26rpx;
     }
-    &:not(:first-child){
+
+    &:not(:first-child) {
       padding: 28rpx 26rpx;
     }
   }
@@ -131,6 +155,7 @@
         flex-direction: column;
         justify-content: center;
         align-content: center;
+
         .number {
           font-size: 34rpx;
           line-height: 36rpx;
@@ -191,7 +216,7 @@
       border-radius: 10rpx;
       border: solid 1rpx #e9edf1;
 
-      &:not(:last-child){
+      &:not(:last-child) {
         margin-bottom: 24rpx;
       }
 
@@ -221,7 +246,7 @@
           }
         }
 
-        &:not(:last-child){
+        &:not(:last-child) {
           margin-right: 19rpx;
         }
       }
@@ -233,6 +258,7 @@
           letter-spacing: 0;
           color: #1083fd;
         }
+
         margin-bottom: 42rpx;
       }
 
