@@ -7,6 +7,10 @@
                 :item-width="76" @change="handleScopeChange"></u-tabs>
       </view>
     </view>
+    <view class="tips light">
+      <view>(次)</view>
+      <view>共1321次</view>
+    </view>
     <histogram-chart v-if="ready"
                      :dataAs="histogramData"
                      :basicAs="basicAs"
@@ -103,7 +107,7 @@ export default {
 <style scoped lang="scss">
 .canvas-container {
   width: 100%;
-
+  
   .head {
     display: flex;
     justify-content: space-between;
@@ -122,6 +126,16 @@ export default {
       display: flex;
       align-content: center;
     }
+  }
+
+  .tips {
+    font-size: 20rpx;
+    line-height: 34rpx;
+    letter-spacing: 0;
+    color: #bdc0c3;
+
+    display: flex;
+    justify-content: space-between;
   }
 
 }

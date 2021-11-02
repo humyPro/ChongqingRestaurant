@@ -14,11 +14,37 @@
       "style": {
         "navigationBarTitleText": "渝中区"
       }
+    },
+    {
+      "path": "pages/official/monitor",
+      "style": {
+        "navigationBarTitleText": "实时监控"
+      }
     }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#1184ff",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar":{
+    "color":"#000000",
+    "selectedColor":"#3290f2",
+    "backgroundColor":"#ffffff",
+    "borderStyle":"black",
+    "list":[
+      {
+        "pagePath":"pages/official/home",
+        "text":"首页",
+        "iconPath":"./static/icon/home.png",
+        "selectedIconPath":"./static/icon/home-selected.png"
+      },
+      {
+        "pagePath":"pages/official/monitor",
+        "text":"实时监控",
+        "iconPath":"static/icon/monitor.png",
+        "selectedIconPath":"static/icon/monitor-selected.png"
+      }
+    ]
   }
 }

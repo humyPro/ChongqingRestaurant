@@ -53,7 +53,11 @@ export default {
   methods: {
     handleLogin() {
       //TODO login
-      wx.redirectTo({
+      // wx.redirectTo({
+      //   url: '/pages/official/home'
+      // })
+
+      wx.switchTab({
         url: '/pages/official/home'
       })
 
