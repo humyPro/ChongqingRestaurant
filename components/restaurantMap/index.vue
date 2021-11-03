@@ -1,6 +1,6 @@
 <template>
   <view class="map-container" v-show="show">
-    <map :longitude="longitude" :latitude="latitude" style="width: 100%;height:100%">
+    <map :longitude="longitude" :latitude="latitude" style="width: 100%;height:100%"  layer-style="1" subkey="6XWBZ-GKIRX-4IP4V-7BKKC-3YKAF-N6FPK">
       <view class="filter">
         <view class="filter-status">
           <u-dropdown class="drop-down" :showMask="false" :title-size="26" :height="64">
