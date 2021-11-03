@@ -50,7 +50,6 @@ export default {
   border-radius: 10rpx;
   border: solid 1rpx #e9edf1;
 
-  margin-bottom: 24rpx;
   background-color: #FFFFFF;
 
   .detail {

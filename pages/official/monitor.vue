@@ -31,9 +31,18 @@
           <view>更新时间: {{ updateTime }}</view>
         </view>
         <view class="card-content">
-          <RestaurantDeviceCard/>
-          <RestaurantDeviceCard/>
-          <RestaurantDeviceCard/>
+          <view>
+            <RestaurantDeviceCard/>
+          </view>
+          <view>
+            <RestaurantDeviceCard/>
+          </view>
+          <view>
+            <RestaurantDeviceCard/>
+          </view>
+          <view>
+            <RestaurantDeviceCard/>
+          </view>
         </view>
       </view>
     </view>
@@ -144,7 +153,8 @@ export default {
     padding: 30rpx 24rpx 0 24rpx;
     height: 100%;
 
-    .card-content {
+    .card-content>view:not(:last-child) {
+      margin-bottom: 24rpx;
     }
 
     .tips {

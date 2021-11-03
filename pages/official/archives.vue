@@ -26,10 +26,20 @@
   </view>
   <view class="card-container">
     <view class="tips">共24家</view>
-    <RestaurantInfoCard/>
-    <RestaurantInfoCard/>
-    <RestaurantInfoCard/>
-    <RestaurantInfoCard/>
+    <view class="card-view">
+      <view>
+        <RestaurantInfoCard/>
+      </view>
+      <view>
+        <RestaurantInfoCard/>
+      </view>
+      <view>
+        <RestaurantInfoCard/>
+      </view>
+      <view>
+        <RestaurantInfoCard/>
+      </view>
+    </view>
   </view>
 </view>
 </template>
@@ -79,7 +89,7 @@ export default {
     background-color: #f0f4f8;
     height: 100%;
     width: 100%;
-    padding: 30rpx 24rpx 0 24rpx;
+    padding: 30rpx 24rpx 30rpx 24rpx;
 
     .tips{
       font-size: 24rpx;
@@ -87,6 +97,10 @@ export default {
       margin-bottom: 16rpx;
       margin-left: 14rpx;
     }
+
+     .card-view>view:not(:last-child){
+       margin-bottom: 30rpx;
+     }
   }
 }
 .head {

@@ -31,9 +31,20 @@
         </view>
         <view class="action text-button">查看全部</view>
       </view>
-      <RestaurantDeviceCard/>
-      <RestaurantDeviceCard/>
-      <RestaurantDeviceCard/>
+      <view class="card-view">
+        <view>
+          <RestaurantDeviceCard/>
+        </view>
+        <view>
+          <RestaurantDeviceCard/>
+        </view>
+        <view>
+          <RestaurantDeviceCard/>
+        </view>
+        <view>
+          <RestaurantDeviceCard/>
+        </view>
+      </view>
     </view>
 
     <view class="section warn-trend">
@@ -144,6 +155,10 @@ export default {
         letter-spacing: 0;
         color: #1184ff;
       }
+    }
+
+    .card-view>view:not(:last-child){
+      margin-bottom: 24rpx;
     }
   }
 

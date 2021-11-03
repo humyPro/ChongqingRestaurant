@@ -44,7 +44,6 @@ export default {
   box-shadow: 0 5rpx 10rpx 0 rgba(196, 196, 196, 0.16);
   border-radius: 10rpx;
   padding: 35rpx 27rpx 37rpx 32rpx;
-  margin-bottom: 30rpx;
 
   .head {
     display: flex;
