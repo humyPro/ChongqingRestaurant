@@ -28,7 +28,7 @@
 			<view @tap.stop.prevent class="u-dropdown__content__popup" :style="[popupStyle]">
 				<slot></slot>
 			</view>
-			<view class="u-dropdown__content__mask"></view>
+			<view v-if="showMask" class="u-dropdown__content__mask"></view>
 		</view>
 	</view>
 </template>
@@ -69,6 +69,10 @@
 				type: Boolean,
 				default: true
 			},
+      showMask: {
+			  type: Boolean,
+        default: true
+      },
 			// 点击当前激活项标题是否关闭菜单
 			closeOnClickSelf: {
 				type: Boolean,

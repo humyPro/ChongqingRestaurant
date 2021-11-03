@@ -15,9 +15,14 @@
 
   .bold {
     font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
   }
 
   .light {
     font-family: MicrosoftYaHeiLight;
+  }
+
+  .error {
+    color: #f44e4e;
   }
 </style>

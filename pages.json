@@ -20,6 +20,12 @@
       "style": {
         "navigationBarTitleText": "实时监控"
       }
+    },
+    {
+      "path": "pages/official/archives",
+      "style": {
+        "navigationBarTitleText": "餐饮档案"
+      }
     }
   ],
   "globalStyle": {
@@ -47,6 +53,12 @@
         "text":"实时监控",
         "iconPath":"static/icon/monitor.png",
         "selectedIconPath":"static/icon/monitor-selected.png"
+      },
+      {
+        "pagePath":"pages/official/archives",
+        "text":"餐饮档案",
+        "iconPath":"static/icon/archives.png",
+        "selectedIconPath":"static/icon/archives-selected.png"
       }
     ]
   }
