@@ -1,6 +1,6 @@
 <template>
   <view class="map-container" v-show="show">
-    <map :longitude="longitude" :latitude="latitude" style="width: 100%;height:100%"  layer-style="1" :subkey="subKey">
+    <map :longitude="longitude" :latitude="latitude" style="width: 100%;height:100%"  layer-style="1" :subkey="subKey" :polygons="polygons" :max-scale="15" :min-scale="10">
       <view class="filter">
         <view class="filter-status">
           <u-dropdown class="drop-down" :showMask="false" :title-size="26" :height="64">
@@ -24,7 +24,8 @@
   </view>
 </template>
 <script>
-import config from '/config/appConfig'
+import config from '../../config/appConfig'
+import {searchDistrict} from "../../api";
 export default {
   name: 'RestaurantMap',
   components: {},
@@ -42,18 +43,39 @@ export default {
       latitude: undefined,
       filter: {
         enStatus: undefined
-      }
+      },
+      polygons: [
+        {
+          points:[],
+          fillColor: "#ffff0033",
+          strokeColor: "#f12321",
+          strokeWidth: 2,
+          zIndex: 1
+        }
+      ]
     }
   },
   mounted() {
-    const _this = this
-    wx.getLocation({
-      success(res) {
-        _this.longitude = res.longitude
-        _this.latitude = res.latitude
-        console.log("获取地址成功：", res)
-      }
-    })
+    let location = uni.getStorageSync("location")
+    debugger
+    if (!location) {
+      searchDistrict("500103").then(res => {
+        location = res.result[0][0]
+        uni.setStorageSync("location", location)
+      })
+    }
+    const pgArr = location.polygon[0]
+    const resArr = []
+    for (let i = 0; i < pgArr.length / 2; i++) {
+      resArr.push({
+        longitude: pgArr[i*2],
+        latitude: pgArr[i*2 + 1]
+      })
+    }
+
+    this.polygons[0].points = resArr
+    this.longitude = location.location.lng
+    this.latitude = location.location.lat
   },
   methods: {
     hideMap() {
