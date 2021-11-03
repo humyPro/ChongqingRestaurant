@@ -25,6 +25,7 @@
     </view>
   </view>
   <view class="card-container">
+    <view class="tips">共24家</view>
     <RestaurantInfoCard/>
     <RestaurantInfoCard/>
     <RestaurantInfoCard/>
@@ -78,7 +79,14 @@ export default {
     background-color: #f0f4f8;
     height: 100%;
     width: 100%;
-    padding: 0 24rpx;
+    padding: 30rpx 24rpx 0 24rpx;
+
+    .tips{
+      font-size: 24rpx;
+      color: #262626;
+      margin-bottom: 16rpx;
+      margin-left: 14rpx;
+    }
   }
 }
 .head {
