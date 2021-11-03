@@ -26,6 +26,12 @@
       "style": {
         "navigationBarTitleText": "餐饮档案"
       }
+    },
+    {
+      "path": "pages/official/enterpriseDetail",
+      "style": {
+        "navigationBarTitleText": "企业详情"
+      }
     }
   ],
   "globalStyle": {

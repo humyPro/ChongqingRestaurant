@@ -1,5 +1,5 @@
 <template>
-  <view class="restaurant-card">
+  <view class="restaurant-card" @click="handleClick">
     <view class="head">
       <view class="name bold">老妈兔头</view>
       <view class="right">
@@ -60,6 +60,11 @@ export default {
   name:'RestaurantDeviceCard',
   data(){
     return {}
+  },
+  methods:{
+    handleClick(){
+      wx.navigateTo({url:"/pages/official/enterpriseDetail"})
+    }
   }
 }
 </script>
