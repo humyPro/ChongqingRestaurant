@@ -49,12 +49,14 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16rpx;
+    border-bottom: 2rpx solid #e9edf1;
 
     .name {
       font-size: 30rpx;
       line-height: 30rpx;
       letter-spacing: 0;
       color: #262626;
+      margin-bottom: 16rpx;
     }
 
     .right-icon {

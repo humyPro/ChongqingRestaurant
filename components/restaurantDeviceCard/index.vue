@@ -87,12 +87,14 @@ export default {
     margin-bottom: 42rpx;
     display: flex;
     justify-content: space-between;
+    border-bottom: 2rpx solid #e9edf1;
 
     .name {
       font-size: 26rpx;
       line-height: 34rpx;
       letter-spacing: 0;
       color: #1083fd;
+      border-bottom: 15rpx;
     }
 
     .right-icon {
