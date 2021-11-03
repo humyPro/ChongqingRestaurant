@@ -25,4 +25,8 @@
   .error {
     color: #f44e4e;
   }
+
+  .green {
+    color: #5bd620!important;
+  }
 </style>

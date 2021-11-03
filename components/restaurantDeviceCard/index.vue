@@ -2,9 +2,29 @@
   <view class="restaurant-card">
     <view class="head">
       <view class="name bold">老妈兔头</view>
-      <view><image class="right-icon" src="/static/icon/right.png"></image></view>
+      <view class="right">
+        <view class="head-tips">
+          <image src="/static/icon/dot-green.png" style="height: 10rpx;width: 10rpx"></image>已安装在线监控
+        </view>
+        <image class="right-icon" src="/static/icon/right.png"></image>
+      </view>
     </view>
     <view class="detail">
+      <view class="detail-item">
+        <view>
+          <image class="detail-icon" src="/static/icon/leaf-tiny.png"></image>
+        </view>
+        <view class="device-status">
+          <text>当前浓度</text>
+          <text class="status">35</text><text class="unit">&nbsp;mg/m³</text>
+        </view>
+      </view>
+      <view class="detail-item right">
+        <view class="device-status">
+          <text>超标情况</text>
+          <text class="status green bold">正常</text>
+        </view>
+      </view>
       <view class="detail-item">
         <view>
           <image class="detail-icon" src="/static/icon/leaf-tiny.png"></image>
@@ -18,7 +38,7 @@
           <text class="status">12.5Ah</text>
         </view>
       </view>
-      <view class="detail-item">
+      <view class="detail-item right">
         <view>
           <image class="detail-icon" src="/static/icon/fan-tiny-off.png"></image>
         </view>
@@ -55,6 +75,7 @@ export default {
   .detail {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .detail-icon {
@@ -87,8 +108,25 @@ export default {
     margin-bottom: 42rpx;
     display: flex;
     justify-content: space-between;
-    border-bottom: 2rpx solid #e9edf1;
+    border-bottom: 2rpx dashed #e9edf1;
 
+    .head-tips {
+      font-size: 22rpx;
+      color: #828a93;
+      display: flex;
+      align-items: center;
+
+      image {
+        margin-right: 8rpx;
+      }
+    }
+    
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
     .name {
       font-size: 26rpx;
       line-height: 34rpx;
@@ -100,6 +138,7 @@ export default {
     .right-icon {
       height: 16rpx;
       width: 16rpx;
+      margin-left: 21rpx;
     }
   }
 
@@ -109,8 +148,9 @@ export default {
       align-content: center;
       flex-basis: 50%;
 
-      &:not(:last-child){
-        margin-right: 39rpx;
+      &.right{
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }
