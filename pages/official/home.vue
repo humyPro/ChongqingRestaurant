@@ -34,6 +34,7 @@
       <view class="item">
         <view class="item-head">
           <view class="name bold">九味砂锅米线</view>
+          <view><image class="right-icon" src="/static/icon/right.png"></image></view>
         </view>
         <view class="detail">
           <view class="detail-item">
@@ -68,6 +69,7 @@
       <view class="item">
         <view class="item-head">
           <view class="name bold">老妈兔头</view>
+          <view><image class="right-icon" src="/static/icon/right.png"></image></view>
         </view>
         <view class="detail">
           <view class="detail-item">
@@ -116,10 +118,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .home-page {
-  height: 100vh;
   width: 100vw;
   padding: 24rpx;
-  border-radius: 10px;
   background-color: #f0f4f8;
 
   .section {
@@ -252,6 +252,10 @@ export default {
       }
 
       .item-head {
+        margin-bottom: 42rpx;
+        display: flex;
+        justify-content: space-between;
+
         .name {
           font-size: 26rpx;
           line-height: 34rpx;
@@ -259,7 +263,10 @@ export default {
           color: #1083fd;
         }
 
-        margin-bottom: 42rpx;
+        .right-icon {
+          height: 16rpx;
+          width: 16rpx;
+        }
       }
 
       .detail {

@@ -43,7 +43,14 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "maps": {
+                    "qqmap": {
+                        // 腾讯地图秘钥 https://lbs.qq.com/dev/console/key/manage
+                        "key": "6XWBZ-GKIRX-4IP4V-7BKKC-3YKAF-N6FPK"
+                    }
+                }
+            }
         }
     },
     /* 快应用特有相关 */
@@ -54,7 +61,12 @@
         "setting" : {
             "urlCheck" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission": {
+            "scope.userLocation": {
+                "desc": "你的位置信息将用于小程序位置接口的效果展示" // 高速公路行驶持续后台定位
+            }
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true

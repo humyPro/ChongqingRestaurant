@@ -25,13 +25,16 @@
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#1184ff",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#1184ff"
   },
   "tabBar":{
     "color":"#000000",
     "selectedColor":"#3290f2",
     "backgroundColor":"#ffffff",
     "borderStyle":"black",
+    "height": "98rpx",
+    "iconWidth": "36rpx",
+    "fontSize": "20rpx",
     "list":[
       {
         "pagePath":"pages/official/home",
