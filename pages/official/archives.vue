@@ -24,23 +24,25 @@
       </view>
     </view>
   </view>
-  <view class="card-container">
-    <view class="tips">共24家</view>
-    <view class="card-view">
-      <view>
-        <RestaurantInfoCard/>
-      </view>
-      <view>
-        <RestaurantInfoCard/>
-      </view>
-      <view>
-        <RestaurantInfoCard/>
-      </view>
-      <view>
-        <RestaurantInfoCard/>
+  <scroll-view class="auto-height" scroll-y="true">
+    <view class="card-container">
+      <view class="tips">共24家</view>
+      <view class="card-view">
+        <view>
+          <RestaurantInfoCard/>
+        </view>
+        <view>
+          <RestaurantInfoCard/>
+        </view>
+        <view>
+          <RestaurantInfoCard/>
+        </view>
+        <view>
+          <RestaurantInfoCard/>
+        </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
 </view>
 </template>
 <script>
@@ -83,11 +85,21 @@ export default {
 <style scoped lang="scss">
 .archives-container {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .head {
+    flex: 0 0 auto;
+  }
+
+  .auto-height {
+    flex-grow: 1;
+    height: 1px;
+  }
 
   .card-container {
     background-color: #f0f4f8;
-    height: 100%;
     width: 100%;
     padding: 30rpx 24rpx 30rpx 24rpx;
 

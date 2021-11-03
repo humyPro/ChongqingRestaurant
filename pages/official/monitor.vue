@@ -25,26 +25,53 @@
           </view>
         </view>
       </view>
-      <view class="content">
-        <view class="tips">
-          <view>共24家</view>
-          <view>更新时间: {{ updateTime }}</view>
+      <scroll-view class="auto-height" scroll-y="true">
+        <view class="content">
+          <view class="tips">
+            <view>共24家</view>
+            <view>更新时间: {{ updateTime }}</view>
+          </view>
+          <view class="card-content">
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+            <view>
+              <RestaurantDeviceCard/>
+            </view>
+
+          </view>
         </view>
-        <view class="card-content">
-          <view>
-            <RestaurantDeviceCard/>
-          </view>
-          <view>
-            <RestaurantDeviceCard/>
-          </view>
-          <view>
-            <RestaurantDeviceCard/>
-          </view>
-          <view>
-            <RestaurantDeviceCard/>
-          </view>
-        </view>
-      </view>
+      </scroll-view>
     </view>
   </view>
 
@@ -78,6 +105,9 @@ export default {
     }
   },
   methods: {
+  },
+  onLoad() {
+    
   }
 }
 </script>
@@ -140,12 +170,20 @@ export default {
 
 .list-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   .head {
     background-color: #1083fd;
     display: flex;
     justify-content: space-between;
+    flex: 0 0 auto;
+  }
+
+  .auto-height {
+    flex-grow: 1;
+    height: 1px;
   }
 
   .content {
@@ -153,7 +191,7 @@ export default {
     padding: 30rpx 24rpx 0 24rpx;
     height: 100%;
 
-    .card-content>view:not(:last-child) {
+    .card-content>view {
       margin-bottom: 24rpx;
     }
 
