@@ -292,7 +292,7 @@
 				this.month = now.getMonth() + 1;
 				this.day = now.getDate();
 				this.today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-				this.activeDate = this.today;
+				this.activeDate = this.maxDate || this.today;
 				this.min = this.initDate(this.minDate);
 				this.max = this.initDate(this.maxDate || this.today);
 				this.startDate = "";
