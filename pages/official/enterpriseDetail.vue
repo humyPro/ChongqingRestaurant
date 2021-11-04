@@ -1,6 +1,7 @@
 <template>
   <view class="enterprise-detail">
-    <view class="device-detail-card">
+    <u-calendar v-model="showCalendar" mode="date" @change="handleSelectDate" :max-date="maxDate"></u-calendar>
+    <view class="device-detail-card section">
       <view class="title bold">
         设备实时工况
       </view>
@@ -135,27 +136,47 @@
               设备历史电量
             </view>
           </view>
+          <view style="width: 100%">
+            <view class="tips light">
+              <view>(度)</view>
+              <view class="sample">
+                <viwe class="item">
+                  <view class="view-icon" style="background-color: #0868f7"></view>
+                  <view>净化机</view>
+                </viwe>
+                <viwe class="item">
+                  <view class="view-icon" style="background-color: #10d785"></view>
+                  <view>风机</view>
+                </viwe>
+              </view>
+            </view>
+            <DeviceElectricHistory/>
+          </view>
         </view>
       </view>
     </view>
-
-    <u-calendar v-model="showCalendar" mode="date" @change="handleSelectDate" :max-date="maxDate"></u-calendar>
   </view>
 </template>
 <script>
 
 import RestaurantDeviceCard from "../../components/restaurantDeviceCard";
+import DeviceElectricHistory from "../../components/deviceElectricHistory";
 import UIcon from "../../uview-ui/components/u-icon/u-icon";
 
 export default {
   name: "EnterpriseDetail",
-  components: {UIcon, RestaurantDeviceCard},
+  components: {
+    UIcon,
+    RestaurantDeviceCard,
+    DeviceElectricHistory
+  },
   data() {
     return {
       selectedDate: undefined,
       showCalendar: false,
       yesterday: this.$u.timeFormat(Date.now() - 24 * 60 * 60 * 1000),
-      maxDate: this.$u.timeFormat(Date.now() - 24 * 60 * 60 * 1000, 'yyyy-m-d') //修改了底层组件，日期格式不足10的不能保留0
+      maxDate: this.$u.timeFormat(Date.now() - 24 * 60 * 60 * 1000, 'yyyy-m-d'),//修改了底层组件，日期格式不足10的不能保留0
+    
     }
   },
   methods:{
@@ -171,13 +192,9 @@ export default {
 .enterprise-detail {
   width: 100vw;
   min-height: 100vh;
-  padding: 37rpx 24rpx 0 24rpx;
+  padding: 37rpx 24rpx 24rpx 24rpx;
 
   background: -webkit-linear-gradient(top, #0d81fa, #f0f4f8, #f0f4f8);
-
-  & > view {
-    margin-bottom: 30rpx;
-  }
 
   .calendar-view {
     font-size: 26rpx;
@@ -189,8 +206,6 @@ export default {
   
   .device-detail-card {
     padding: 28rpx 26rpx 36rpx 26rpx;
-    background-color: #ffffff;
-    border-radius: 10rpx;
 
     .title {
       font-size: 28rpx;
@@ -199,9 +214,13 @@ export default {
     }
   }
 
-  .section {
+  &>.section {
     background-color: #ffffff;
     border-radius: 10rpx;
+
+    &:not(:last-child) {
+      margin-bottom: 30rpx;
+    }
   }
 
   .section-head {
@@ -289,6 +308,18 @@ export default {
 
   .device-electric-history {
     margin-top: 78rpx;
+
+    .tips {
+      font-size: 20rpx;
+      line-height: 34rpx;
+      letter-spacing: 0;
+      color: #bdc0c3;
+
+      padding-left: 4rpx;
+
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .sample {
