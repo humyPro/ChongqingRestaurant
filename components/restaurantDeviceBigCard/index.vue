@@ -1,7 +1,7 @@
 <template>
   <view class="restaurant-card" @click="handleClick">
     <view class="head">
-      <view :class="`name bol`" :style="{color: titleColor}">老妈兔头</view>
+      <view class="name bold" :style="{color: titleColor}">老妈兔头</view>
       <view class="right">
         <image class="right-icon" src="/static/icon/right.png"></image>
       </view>
@@ -82,6 +82,7 @@ export default {
 
   .head {
     margin-bottom: 28rpx;
+    margin-left: 2rpx;
     display: flex;
     justify-content: space-between;
 
