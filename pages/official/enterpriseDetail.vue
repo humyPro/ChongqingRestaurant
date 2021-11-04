@@ -87,7 +87,7 @@
                 </viwe>
               </view>
             </view>
-            <DeviceElectricHistory/>
+            <DeviceElectricHistory v-show="showDeviceElectricHistory"/>
           </view>
         </view>
       </view>
@@ -115,12 +115,19 @@ export default {
       showCalendar: false,
       yesterday: this.$u.timeFormat(Date.now() - 24 * 60 * 60 * 1000),
       maxDate: this.$u.timeFormat(Date.now() - 24 * 60 * 60 * 1000, 'yyyy-m-d'),//修改了底层组件，日期格式不足10的不能保留0
-    
+      showDeviceElectricHistory: true
     }
   },
   methods:{
     handleSelectDate(date){
       this.selectedDate = date.result
+    }
+  },
+  watch:{
+    showCalendar:{
+      handler(val){
+        this.showDeviceElectricHistory = !val
+      }
     }
   }
 }
@@ -133,7 +140,7 @@ export default {
   min-height: 100vh;
   padding: 37rpx 24rpx 24rpx 24rpx;
 
-  background: -webkit-linear-gradient(top, #0d81fa, #f0f4f8, #f0f4f8,#f0f4f8,#f0f4f8);
+  background: -webkit-linear-gradient(top, #1184ff, #f0f4f8, #f0f4f8,#f0f4f8,#f0f4f8);
 
   .calendar-view {
     font-size: 26rpx;
