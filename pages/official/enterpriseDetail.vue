@@ -5,73 +5,10 @@
       <view class="title bold">
         设备实时工况
       </view>
-      <RestaurantDeviceCard/>
+      <RestaurantDeviceCard />
     </view>
-    <view class="base-info section">
-      <view class="section-head bold">
-        基本信息
-      </view>
-      <view class="content">
-        <view class="line">
-          <text>企业名称：</text>
-          <text>重庆小龙坎火锅</text>
-        </view>
-        <view class="line">
-          <text>生产状态：</text>
-          <text>正常</text>
-        </view>
-        <view class="line">
-          <text>联系人：</text>
-          <text>吴小飞</text>
-        </view>
-        <view class="line">
-          <text>联系电话：</text>
-          <text>15282250907</text>
-        </view>
-        <view class="line">
-          <text>所属行业：</text>
-          <text>餐饮</text>
-        </view>
-        <view class="line">
-          <text>所属区县：</text>
-          <text>渝中区</text>
-        </view>
-        <view class="line">
-          <text>详细地址：</text>
-          <text>重庆市渝中区解放大道美食街18号</text>
-        </view>
-        <view class="line">
-          <text>经纬度：</text>
-          <text>106.551798,29.561125</text>
-        </view>
-        <view class="line">
-          <text>在线监控：</text>
-          <text>浓度监控</text>
-        </view>
-        <view class="line">
-          <text>当前浓度：</text>
-          <text>35 mg/m³</text>
-        </view>
-        <view class="line">
-          <text>超标情况：</text>
-          <text>正常</text>
-        </view>
-        <view class="line">
-          <text>MN码：</text>
-          <text>865374059794100</text>
-        </view>
-        <view class="line">
-          <text>净化机清洗周期：</text>
-          <text>2个月</text>
-        </view>
-        <view class="line">
-          <text>净化机下一次清洗日期：</text>
-          <text>2021-09-29</text>
-          <text class="error">（已逾期）</text>
-        </view>
-      </view>
-    </view>
-    <view class="device-history section">
+    <EnterpriseBaseInfo/>
+    <view class="device-history section"  style="margin-top: 30rpx">
       <view class="section-head">
         <view class="bold">设备历史记录</view>
         <view class="calendar-view" @click="showCalendar = true">
@@ -161,6 +98,7 @@
 
 import RestaurantDeviceCard from "../../components/restaurantDeviceCard";
 import DeviceElectricHistory from "../../components/deviceElectricHistory";
+import EnterpriseBaseInfo from "../../components/enterpriseBaseInfo";
 import UIcon from "../../uview-ui/components/u-icon/u-icon";
 
 export default {
@@ -168,7 +106,8 @@ export default {
   components: {
     UIcon,
     RestaurantDeviceCard,
-    DeviceElectricHistory
+    DeviceElectricHistory,
+    EnterpriseBaseInfo
   },
   data() {
     return {
@@ -194,7 +133,7 @@ export default {
   min-height: 100vh;
   padding: 37rpx 24rpx 24rpx 24rpx;
 
-  background: -webkit-linear-gradient(top, #0d81fa, #f0f4f8, #f0f4f8);
+  background: -webkit-linear-gradient(top, #0d81fa, #f0f4f8, #f0f4f8,#f0f4f8,#f0f4f8);
 
   .calendar-view {
     font-size: 26rpx;
@@ -214,9 +153,10 @@ export default {
     }
   }
 
-  &>.section {
+  .section {
     background-color: #ffffff;
     border-radius: 10rpx;
+    width: 100%;
 
     &:not(:last-child) {
       margin-bottom: 30rpx;
@@ -234,18 +174,7 @@ export default {
     justify-content: space-between;
   }
 
-  .base-info {
-
-    .content {
-      padding: 25rpx 0 35rpx 34rpx;
-      font-size: 25rpx;
-      color: #7a7a7a;
-
-      .line:not(:last-child) {
-        margin-bottom: 22rpx;
-      }
-    }
-  }
+  
 
   .segment-content {
     display: flex;
