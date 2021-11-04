@@ -32,7 +32,7 @@
       </view>
 
       <view class="device-card" v-show="showDeviceCard">
-        <RestaurantDeviceBigCard title-color="blank" />
+        <RestaurantDeviceBigCard title="老妈兔头" title-color="blank" />
       </view>
     </map>
   </view>

@@ -1,7 +1,7 @@
 <template>
   <view class="restaurant-card" @click="handleClick">
     <view class="head">
-      <view class="name bold" :style="{color: titleColor}">老妈兔头</view>
+      <view class="name bold" :style="{color: titleColor}">{{title}}</view>
       <view class="right">
         <image class="right-icon" src="/static/icon/right.png"></image>
       </view>
@@ -54,6 +54,10 @@
 export default {
   name:'RestaurantDeviceBigCard',
   props:{
+    title: {
+      type: String,
+      default: "设备实时工况"
+    },
     titleColor: {
       type: String,
       default: "#1083fd"
