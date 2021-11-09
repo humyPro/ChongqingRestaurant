@@ -1,5 +1,5 @@
 <template>
-  <view class="home-page">
+  <view class="home-page" v-cloak>
     <view class="overview section">
       <view class="item">
         <image class="big-icon" mode="scaleToFill" src="/static/icon/building.png"/>

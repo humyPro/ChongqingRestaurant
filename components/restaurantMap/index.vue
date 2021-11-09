@@ -55,11 +55,10 @@ export default {
       ]
     }
   },
-  mounted() {
+  async mounted() {
     let location = uni.getStorageSync("location")
-    debugger
     if (!location) {
-      searchDistrict("500103").then(res => {
+      await searchDistrict("500103").then(res => {
         location = res.result[0][0]
         uni.setStorageSync("location", location)
       })
