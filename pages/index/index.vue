@@ -4,7 +4,7 @@
       <u-image src="/static/img/loginBack.png" mode="widthFix"></u-image>
     </view>
     <view class="login-form">
-      <view class="welcome-words bold">欢迎登陆</view>
+      <view class="welcome-words bold">欢迎登录</view>
       <view class="form">
         <u-form v-model="form">
           <u-form-item label="账号:">

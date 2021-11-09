@@ -1,9 +1,9 @@
 <template>
   <view class="monitor-container">
-    <view class="map" v-if="showMap">
+    <view class="map" v-show="showMap">
       <RestaurantMap :show.sync="showMap" :filter-option="filterOption"></RestaurantMap>
     </view>
-    <view class="list-container" v-else>
+    <view class="list-container" v-show="!showMap">
       <view class="head">
         <view class="filter on-page">
           <view class="filter-status">

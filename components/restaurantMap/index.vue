@@ -64,7 +64,7 @@ export default {
       polygons: [
         {
           points:[],
-          // fillColor: "#ffffff02",
+          fillColor: "#e0dba030",
           strokeColor: "#1184ff",
           strokeWidth: 2,
           zIndex: 1
