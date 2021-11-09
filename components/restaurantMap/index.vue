@@ -1,6 +1,16 @@
 <template>
   <view class="map-container" v-show="show">
-    <map :longitude="longitude" :latitude="latitude" style="width: 100%;height:100%"  layer-style="1" :subkey="subKey" :polygons="polygons" :max-scale="15" :min-scale="10">
+    <map :longitude="longitude"
+         :latitude="latitude"
+         style="width: 100%;height:100%"
+         layer-style="1"
+         :subkey="subKey"
+         :polygons="polygons"
+         :max-scale="15" 
+         :min-scale="10"
+         :markers="markers"
+         @markertap="bindMarkerTap"
+    >
       <view class="filter">
         <view class="filter-status">
           <u-dropdown class="drop-down" :showMask="false" :title-size="26" :height="64">
@@ -20,15 +30,20 @@
           </view>
         </view>
       </view>
+
+      <view class="device-card" v-show="showDeviceCard">
+        <RestaurantDeviceBigCard title="老妈兔头" title-color="blank" />
+      </view>
     </map>
   </view>
 </template>
 <script>
 import config from '../../config/appConfig'
 import {searchDistrict} from "../../api";
+import RestaurantDeviceBigCard from "../restaurantDeviceBigCard";
 export default {
   name: 'RestaurantMap',
-  components: {},
+  components: {RestaurantDeviceBigCard},
   props: {
     filterOption: {
       type: Array,
@@ -41,16 +56,38 @@ export default {
       subKey: config.TX_MAP_KEY,
       longitude: undefined,
       latitude: undefined,
+      showDeviceCard: false,
+      currentMarkerId: undefined,
       filter: {
         enStatus: undefined
       },
       polygons: [
         {
           points:[],
-          fillColor: "#ffff0033",
-          strokeColor: "#f12321",
+          // fillColor: "#ffffff02",
+          strokeColor: "#1184ff",
           strokeWidth: 2,
           zIndex: 1
+        }
+      ],
+      markers:[
+        {
+          id: 1,
+          //29.560124,106.554745
+          latitude:29.560124,
+          longitude:106.554745,
+          iconPath:"/static/icon/marker-normal.png",
+          width:'71px',
+          height:'71px'
+        },
+        {
+          id: 2,
+          //29.554748,106.570826
+          latitude:29.554748,
+          longitude:106.570826,
+          iconPath:"/static/icon/marker-off.png",
+          width:'71px',
+          height:'71px'
         }
       ]
     }
@@ -79,7 +116,12 @@ export default {
   methods: {
     hideMap() {
       this.$emit("update:show",false)
+    },
+    bindMarkerTap(e){
+      this.currentMarkerId = e.markerId
+      this.showDeviceCard = true
     }
+    
   }
 }
 </script>
@@ -136,6 +178,14 @@ export default {
     }
   }
 }
+
+.device-card {
+  position: absolute;
+  margin-top: 100%;
+  margin-left: calc((100vw - 702rpx)/2);
+  bottom: 32rpx;
+}
+
 
 .list-container {
   width: 100vw;

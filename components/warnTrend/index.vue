@@ -7,10 +7,6 @@
                 :item-width="76" @change="handleScopeChange"></u-tabs>
       </view>
     </view>
-    <view class="tips light">
-      <view>(次)</view>
-      <view>共1321次</view>
-    </view>
     <histogram-chart v-if="ready"
                      :dataAs="histogramData"
                      :basicAs="basicAs"
@@ -98,7 +94,6 @@ export default {
     query.select(`#${id}`).boundingClientRect(function (res) {
       that.ready = true
       that.basicAs.width = res && res.width || undefined
-      console.log('柱状图宽度', res)
     }).exec();
   }
 };

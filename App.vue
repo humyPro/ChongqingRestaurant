@@ -29,4 +29,14 @@
   .green {
     color: #5bd620!important;
   }
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hidden {
+    visibility: hidden
+  }
 </style>
